@@ -125,6 +125,10 @@ body {
     border: 1px solid #111;
 }
 
+.drop-active {
+    border: 1px solid white;
+}
+
 .footer {
 
     $selector:&;

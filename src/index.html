@@ -45,7 +45,10 @@
             </section>
             <section class="grid-bar">
                 <div class="grid__vertical" ng-repeat="vertical in ctrl.grid">
-                    <div class="grid__horisontal" ng-repeat="horisontal in ctrl.grid"></div>
+                    <div class="grid__horisontal" 
+                        ng-repeat="horisontal in ctrl.grid"
+                        drop-item
+                    ></div>
                 </div>
             </section>
         </main>

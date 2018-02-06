@@ -17,6 +17,9 @@ function drugItemDirective($timeout) {
             let color = /(.*?)rgb\((\d+),\s*(\d+),\s*(\d+)\)/i.exec(style);
             let background = [].concat(color[2], color[3], color[4]);
             console.log(background);
+            $element.on('dragstart', evet => {
+                evet.dataTransfer.setData("text/plain", background.join(','));
+            });
         }
     }
 }
