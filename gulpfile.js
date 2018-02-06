@@ -76,7 +76,8 @@ gulp.task('server', _ => {
         },
         tunnel: true,
         host: 'localhost',
-        port: '1337'
+        port: '1337',
+        open: false
     })
 });
 

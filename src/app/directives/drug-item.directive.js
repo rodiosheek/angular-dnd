@@ -4,21 +4,20 @@ angular
     .module('app')
     .directive('drugItem', drugItemDirective);
 
-drugItemDirective.$inject = ['$timeout'];
+drugItemDirective.$inject = ['$timeout', 'colorConverter'];
 
-function drugItemDirective($timeout) {
+function drugItemDirective($timeout, colorConverter) {
     return {
         restrict: 'A',
         scope: {},
         link: ($scope, $element, $attrs) => {
             $attrs.$set('draggable', true);
             
-            let style = window.getComputedStyle($element[0]).backgroundColor;
-            let color = /(.*?)rgb\((\d+),\s*(\d+),\s*(\d+)\)/i.exec(style);
-            let background = [].concat(color[2], color[3], color[4]);
-            console.log(background);
+            let background_color = colorConverter.findBackgroundColor($element);
+            console.log('->', background_color);
+
             $element.on('dragstart', evet => {
-                evet.dataTransfer.setData("text/plain", background.join(','));
+                evet.dataTransfer.setData("text/plain", background_color.join(','));
             });
         }
     }

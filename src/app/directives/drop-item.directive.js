@@ -4,18 +4,19 @@ angular
     .module('app')
     .directive('dropItem', dropItemDirective);
 
-dropItemDirective.$inject = ['$timeout'];
+dropItemDirective.$inject = ['$parse', 'colorConverter'];
 
-function dropItemDirective($timeout) {
+function dropItemDirective($parse, colorConverter) {
     return {
         restrict: 'A',
-        scope: {},
+        scope: {
+            dropCallback: '&dropItem'
+        },
         link: ($scope, $element, $attrs) => {
-            
-            let style = window.getComputedStyle($element[0]).backgroundColor;
-            let color = /(.*?)rgb\((\d+),\s*(\d+),\s*(\d+)\)/i.exec(style);
-            // let background = [].concat(color[2], color[3], color[4]);
-            // console.log(background);
+
+            let background_color = colorConverter.findBackgroundColor($element);
+            console.log('dropItemDirective', background_color);
+
             $element.on('dragenter', evet => {
                 angular.element(event.target).addClass('drop-active');
             });
@@ -27,12 +28,11 @@ function dropItemDirective($timeout) {
                 event.stopPropagation();
             });
             $element.on('drop', evet => {
-                 
-                console.log('drop', event.dataTransfer.getData('text'));
+                console.log('=-', $scope, $element);
                 let background = event.dataTransfer.getData('text');
                 console.log(background);
                 $element.css('background-color', 'rgb(' + background + ')');
-
+                $scope.dropCallback({data: background});
             });
         }
     }
