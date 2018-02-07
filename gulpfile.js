@@ -5,7 +5,6 @@ const gulp = require('gulp'),
     prefixer = require('gulp-autoprefixer'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    imagemin = require('gulp-imagemin'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
     concat = require('gulp-concat'),
@@ -80,8 +79,7 @@ gulp.task('server', _ => {
         },
         tunnel: true,
         host: 'localhost',
-        port: '1337',
-        open: false
+        port: '1337'
     })
 });
 

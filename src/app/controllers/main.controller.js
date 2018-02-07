@@ -45,7 +45,6 @@ function mainController($scope, jsonReader) {
     ctrl.load = ($file) => {
         jsonReader.getJson($file).then(
             data => {
-                console.log(data);
                 $scope.store = JSON.parse(data);
                 setTheGrid($scope.store);
             },
@@ -67,7 +66,5 @@ function mainController($scope, jsonReader) {
                 color: store[key]
             });
         }
-        console.log($scope.json_view);
-    }
-
+    };
 }
