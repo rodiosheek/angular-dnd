@@ -42,7 +42,10 @@ function mainController($scope, jsonReader) {
     };
 
     ctrl.load = ($file) => {
-        jsonReader.get($file).then(data => console.log('load', data));
+        jsonReader.get($file).then(data => {
+            console.log(data);
+            $scope.store = JSON.parse(data);
+        });
     };
 
 
