@@ -38,7 +38,7 @@ function colorConverter($window) {
 
     function returnRgb(color) {
         if(typeof color == 'string') {
-            return 'rgb' + color + ')';
+            return 'rgb(' + color + ')';
         } 
         return 'rgb(' + color.join(',') + ')';
     };

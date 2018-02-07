@@ -48,6 +48,7 @@
                     <div class="grid__horisontal" 
                         ng-repeat="y in ctrl.grid"
                         drop-item="ctrl.dropCallback(color, x, y)"
+                        drop-item-coords="{x:x, y:y}"
                     ></div>
                 </div>
             </section>

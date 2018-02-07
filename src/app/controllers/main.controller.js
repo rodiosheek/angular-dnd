@@ -14,12 +14,9 @@ function mainController($scope, jsonReader) {
     $scope.load_file = null;
 
     ctrl.dropCallback = (color, x, y) => {
-        let data_object = {
-            x: x,
-            y: y,
-            color: color.join(',')
-        };
-        $scope.store[x + ':' + y] = data_object;
+
+        $scope.store[x + ':' + y] = color.join(',');
+        
         $scope.$apply();
     };
    
