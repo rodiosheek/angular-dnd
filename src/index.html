@@ -49,12 +49,14 @@
                         ng-repeat="y in ctrl.grid"
                         drop-item="ctrl.dropCallback(color, x, y)"
                         drop-item-coords="{x:x, y:y}"
-                    ></div>
+                    >{{x}}:{{y}}</div>
                 </div>
             </section>
         </main>
         <footer class="footer">
-            <pre> {{store}} </pre>
+            <ul>
+                <li ng-repeat="item in json_view">Cell: {{item.cell}} have color {{item.color}}</li>
+            </ul>
         </footer>
     </div>
     <script src="vendor/vendor.js"></script>
