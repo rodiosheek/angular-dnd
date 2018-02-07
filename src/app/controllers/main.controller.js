@@ -9,16 +9,17 @@ function mainController($scope) {
    
     ctrl.grid = [1,2,3,4,5,6,7,8,9,10];
 
-    let store = [];
-
-    let data_object = {
-        x: 0,
-        y: 0,
-        color: ''
-    };
+    $scope.store = {};
 
     ctrl.dropCallback = (color, x, y) => {
-        console.log(color, x, y);
+        let data_object = {
+            x: x,
+            y: y,
+            color: color
+        };
+        $scope.store[x + ':' + y] = data_object;
+        $scope.$apply();
+        console.log($scope.store);
     };
    
     ctrl.reset = () => {
