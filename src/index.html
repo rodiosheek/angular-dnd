@@ -9,9 +9,9 @@
 <body ng-controller="mainController as ctrl">
     <div class="page">
         <header class="header">
-            <button class="action-button">Reset</button>
-            <button class="action-button">Save</button>
-            <button class="action-button">Load</button>
+            <button class="action-button" ng-click="ctrl.reset()">Reset</button>
+            <button class="action-button" ng-click="ctrl.save()">Save</button>
+            <button class="action-button" ng-click="ctrl.load()">Load</button>
         </header>
         <main class="content">
             <section class="menu-bar">
