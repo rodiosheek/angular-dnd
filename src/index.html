@@ -11,7 +11,7 @@
         <header class="header">
             <button class="action-button" ng-click="ctrl.reset()">Reset</button>
             <button class="action-button" ng-click="ctrl.save()">Save</button>
-            <button class="action-button" ng-click="ctrl.load()">Load</button>
+            <input type="file" ngf-select="ctrl.load($file)"></input>
         </header>
         <main class="content">
             <section class="menu-bar">

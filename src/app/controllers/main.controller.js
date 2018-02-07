@@ -2,14 +2,16 @@ angular
     .module('app')
     .controller('mainController', mainController);
 
-    mainController.$inject = ['$scope', 'FileSaver', 'Blob'];
+    mainController.$inject = ['$scope', 'jsonReader'];
 
-function mainController($scope, FileSaver, Blob) {
+function mainController($scope, jsonReader) {
     var ctrl = this;
    
     ctrl.grid = [1,2,3,4,5,6,7,8,9,10];
 
     $scope.store = {};
+
+    $scope.load_file = null;
 
     ctrl.dropCallback = (color, x, y) => {
         let data_object = {
@@ -19,7 +21,6 @@ function mainController($scope, FileSaver, Blob) {
         };
         $scope.store[x + ':' + y] = data_object;
         $scope.$apply();
-        console.log($scope.store);
     };
    
     ctrl.reset = () => {
@@ -31,12 +32,19 @@ function mainController($scope, FileSaver, Blob) {
     };
 
     ctrl.save = () => {
+        if(Object.keys($scope.store).length == 0) {
+            alert('Nothing to save.');
+            return;
+        } 
         let data = JSON.stringify($scope.store);
-        console.log(data);
-        var save_data = new Blob([data], { type: 'text/plain;charset=utf-8' });
-        FileSaver.saveAs(save_data, 'drag-n-drop-itmes.json');
+      
+        jsonReader.save(data);
     };
 
-    ctrl.load = () => {};
+    ctrl.load = ($file) => {
+        jsonReader.get($file).then(data => console.log('load', data));
+    };
+
+
 
 }

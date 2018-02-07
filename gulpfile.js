@@ -26,7 +26,8 @@ var pathes = {
         css: 'src/style/style.scss',
         vendor: [
             'node_modules/angular/angular.min.js',
-            'node_modules/angular-file-saver/dist/angular-file-saver.bundle.min.js'
+            'node_modules/angular-file-saver/dist/angular-file-saver.bundle.min.js',
+            'node_modules/ng-file-upload/dist/ng-file-upload.min.js'
         ]
     },
     watch: {
