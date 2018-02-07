@@ -30,6 +30,10 @@ function dropItemDirective($parse, colorConverter, $rootScope) {
                 $element.css('background-color', null);
             });
 
+            $rootScope.$on('set-drop-items', (event, data) => {
+                console.log('set-drop-items', data);
+            });
+
             function dropHandler(event) {
                 angular.element(event.target).removeClass('drop-active');
                 

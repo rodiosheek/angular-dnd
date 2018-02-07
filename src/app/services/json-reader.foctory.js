@@ -9,9 +9,19 @@ angular
 function jsonReaderFactory($q, FileSaver, Blob) {
 
     function get(load_file) {
+
         let defer = $q.defer();
 
-        if(!load_file) return defer.reject('Reject');
+        if(!load_file) defer.reject();
+
+        //Basic protection from not json files
+        let name = load_file.name.split('.');
+        let extention = name[name.length - 1];
+        
+        if(extention !== 'json') {
+            alert('Sorry, you load not .json file.');
+            defer.reject();
+        }
 
         let reader = new FileReader();
 
@@ -29,8 +39,8 @@ function jsonReaderFactory($q, FileSaver, Blob) {
     }
 
     return {
-        get: get,
-        save: save
+        getJson: get,
+        saveJson: save
     }
  }
 

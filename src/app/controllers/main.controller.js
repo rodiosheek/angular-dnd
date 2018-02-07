@@ -38,14 +38,23 @@ function mainController($scope, jsonReader) {
         } 
         let data = JSON.stringify($scope.store);
       
-        jsonReader.save(data);
+        jsonReader.saveJson(data);
     };
 
     ctrl.load = ($file) => {
-        jsonReader.get($file).then(data => {
-            console.log(data);
-            $scope.store = JSON.parse(data);
-        });
+        jsonReader.getJson($file).then(
+            data => {
+                console.log(data);
+                $scope.store = JSON.parse(data);
+                setTheGrid($scope.store);
+            },
+            error => console.warn(error)
+        );
+    };
+
+
+    function setTheGrid(data) {
+        $scope.$emit('set-drop-items', data);
     };
 
 
