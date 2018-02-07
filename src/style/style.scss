@@ -113,6 +113,7 @@ body {
     line-height: $pallete-height-width;
     text-align: left;
     margin-left: 5px;
+    cursor: text;
 }
 
 .grid__vertical {
@@ -127,6 +128,11 @@ body {
 
 .drop-active {
     border: 1px solid white;
+}
+
+.drag-locked {
+    opacity: 0.5;
+    cursor: inherit;
 }
 
 .footer {

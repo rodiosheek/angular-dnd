@@ -19,25 +19,25 @@
                 <div class="pallete__menu">
                     <div class="pallete">
                         <div class="pallete__drug_item color-red"
-                             drug-item
+                             drag-item
                         ></div>
                         <div class="pallete__text">Red</div>
                     </div>
                     <div class="pallete">
                         <div class="pallete__drug_item color-green"
-                             drug-item
+                             drag-item
                         ></div>
                         <div class="pallete__text">Green</div>
                     </div>
                     <div class="pallete">
                         <div class="pallete__drug_item color-blue"
-                             drug-item
+                             drag-item
                         ></div>
                         <div class="pallete__text">Blue</div>
                     </div>
                     <div class="pallete">
                         <div class="pallete__drug_item color-black"
-                             drug-item
+                             drag-item
                         ></div>
                         <div class="pallete__text">Black</div>
                     </div>
@@ -47,7 +47,7 @@
                 <div class="grid__vertical" ng-repeat="x in ctrl.grid">
                     <div class="grid__horisontal" 
                         ng-repeat="y in ctrl.grid"
-                        drop-item="ctrl.dropCallback(data, x, y)"
+                        drop-item="ctrl.dropCallback(color, x, y)"
                     ></div>
                 </div>
             </section>
