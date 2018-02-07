@@ -14,7 +14,7 @@ function drugItemDirective($timeout, colorConverter) {
             $attrs.$set('draggable', true);
             
             let background_color = colorConverter.findBackgroundColor($element);
-            console.log('->', background_color);
+    
 
             $element.on('dragstart', evet => {
                 evet.dataTransfer.setData("text/plain", background_color.join(','));
