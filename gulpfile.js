@@ -24,7 +24,10 @@ var pathes = {
         html: 'src/*.html',
         js: 'src/app/**/*.js',
         css: 'src/style/style.scss',
-        vendor: 'node_modules/angular/angular.min.js'
+        vendor: [
+            'node_modules/angular/angular.min.js',
+            'node_modules/angular-file-saver/dist/angular-file-saver.bundle.min.js'
+        ]
     },
     watch: {
         html: 'src/**/*.html',
