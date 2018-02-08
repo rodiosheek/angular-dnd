@@ -1,3 +1,5 @@
+Please see live exemple on [Heroku](https://angular-dnd.herokuapp.com/)
+
 #### Clone repository
 ```
 git clone https://github.com/rodiosheek/angular-dnd.git
