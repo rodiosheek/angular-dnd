@@ -15,9 +15,9 @@ const gulp = require('gulp'),
 var pathes = {
     build: {
         html: 'build/',
-        js: 'build/app',
-        css: 'build/style',
-        vendor: 'build/vendor'
+        js: 'build/public/js',
+        css: 'build/public/style',
+        vendor: 'build/public/js'
     },
     src: {
         html: 'src/*.html',
