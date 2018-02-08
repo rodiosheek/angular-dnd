@@ -59,6 +59,7 @@ function mainController($scope, jsonReader) {
     };
 
     function convertToJsonView(store) {
+        $scope.json_view = [];
         if(Object.keys($scope.store).length == 0) return;
         for(let key in store) {
             $scope.json_view.push({
